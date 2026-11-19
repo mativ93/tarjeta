@@ -4,48 +4,40 @@
 
 | Archivo | Qué es |
 |---|---|
-| `index.html` | La tarjeta como página web (con botones que funcionan) |
-| `tarjeta.png` | La tarjeta como imagen (1040 × 1520) |
+| `index.html` | La tarjeta como página web (botones que funcionan) |
+| `tarjeta.png` | La tarjeta como imagen vertical (1040 × 1720), para mandar como foto |
+| `preview.jpg` | Imagen horizontal (1200 × 630) que usa WhatsApp en la vista previa del link |
+| `preview.html` | Fuente de `preview.jpg`. No se comparte |
 | `matias-verde.vcf` | Contacto para guardar en la agenda del teléfono |
 | `README.md` | Este archivo |
 
+Publicada en: `https://mativ93.github.io/tarjeta/`
+
 ---
 
-## Tres formas de compartirla
+## La diferencia importante
 
-### 1. Como link (la buena)
+- **Link** → WhatsApp lo muestra como una tarjeta con imagen, título y descripción.
+  **Toda la tarjeta es tocable**: al tocarla se abre la página con los botones activos.
+- **Imagen (`tarjeta.png`)** → se ve como foto. No se puede tocar.
 
-La tarjeta es una página, no una foto: para compartirla hay que publicarla y mandar la URL.
+Para que aparezca la tarjeta tocable: pegar el link, no la foto.
 
-1. Crear un repo público en GitHub, por ejemplo `tarjeta`.
-2. Subir el contenido de esta carpeta a la raíz.
-3. Settings → Pages → Source: *Deploy from a branch* → Branch `main`, carpeta `/ (root)`.
-4. Queda en `https://mativ93.github.io/tarjeta/`.
+---
 
-Ese link se pega en WhatsApp y la otra persona abre la tarjeta con los botones activos
-(WhatsApp, email, guardar contacto).
+## Cómo se comparte
 
-Para que el link muestre miniatura en WhatsApp: subir una imagen 1200×630 como `preview.jpg`
-y descomentar la etiqueta `og:image` en el `<head>`, con la URL absoluta.
+**Link.** Pegar `https://mativ93.github.io/tarjeta/` en el chat. WhatsApp lo convierte
+en la vista previa con `preview.jpg`, y al tocarla se abre la página.
 
-### 2. Como imagen
+**Foto.** Adjuntar `tarjeta.png` (clip → Fotos). Sirve para mostrarla sin abrir nada.
+No es tocable; conviene mandarla junto con el link.
 
-Adjuntar `tarjeta.png` en el chat (clip → Fotos). Se ve al instante, sin abrir nada,
-pero no es clickeable. Conviene mandarla junto con el link.
+**Contacto.** Adjuntar `matias-verde.vcf` (clip → Documento). Aparece "Agregar contacto"
+y queda en la agenda con teléfono, mail y empresa.
 
-Se puede regenerar con Chrome:
-
-```
-chrome --headless=new --force-device-scale-factor=2 --window-size=520,760 ^
-  --screenshot="tarjeta.png" "index.html?img"
-```
-
-(En el modo `?img` se oculta el botón "Copiar enlace" y se muestra el número de WhatsApp.)
-
-### 3. Como contacto
-
-Adjuntar `matias-verde.vcf` (clip → Documento). A la otra persona le aparece
-"Agregar contacto" y queda en su agenda sin escribir nada.
+> Si WhatsApp muestra una versión vieja de la vista previa, está usando caché.
+> Agregar `?v=2` al final del link para forzarla.
 
 ---
 
@@ -54,6 +46,21 @@ Adjuntar `matias-verde.vcf` (clip → Documento). A la otra persona le aparece
 - Nombre, rol y descripción: dentro de `<main class="card">`.
 - Teléfono: en tres lugares — link `tel:`, texto visible y link `wa.me`.
   Formato internacional: `+54 9 353 412-8663` / `5493534128663`.
-- Ubicación: fila con el ícono de pin (Villa María, Córdoba).
+- Mensaje precargado de WhatsApp: parámetro `text=` del link `wa.me`.
+- Ubicación: fila con el ícono de pin.
 - Color de acento: variable `--accent` en el `<style>`.
-- Si cambia el teléfono o el email, actualizar también `matias-verde.vcf` y regenerar `tarjeta.png`.
+
+Después de cambiar teléfono, email o textos hay que regenerar `tarjeta.png` y `preview.jpg`,
+y actualizar `matias-verde.vcf`.
+
+## Regenerar las imágenes
+
+```
+chrome --headless=new --force-device-scale-factor=2 --window-size=520,860 ^
+  --screenshot="tarjeta.png" "index.html?img"
+
+chrome --headless=new --window-size=1200,630 ^
+  --screenshot="preview.png" "preview.html"
+```
+
+`preview.png` se convierte a JPG (calidad 88) antes de subirlo como `preview.jpg`.
