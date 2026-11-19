@@ -234,6 +234,54 @@
   @media (prefers-reduced-motion:reduce){
     *{transition:none!important}
   }
+
+  /* ---------- PDF (imprimir / Guardar como PDF) ---------- */
+  .print-only{display:none}
+
+  @media print{
+    @page{size:115mm 205mm;margin:0}
+
+    html,body{
+      height:auto;
+      padding:0;
+      margin:0;
+      background:#0a0b0a !important;
+      display:block;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+
+    .card{
+      width:115mm;
+      min-height:205mm;
+      max-width:none;
+      border:0;
+      border-radius:0;
+      box-shadow:none;
+      padding:14mm 12mm;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:#0e1110 !important;
+    }
+
+    .foot{display:none}
+    .print-only{
+      display:block;
+      margin-top:18px;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.08);
+      font-size:9.5px;
+      letter-spacing:.04em;
+      color:#6f7a74;
+      text-align:center;
+    }
+
+    /* El link de descarga no tiene sentido dentro de un PDF */
+    .actions a[download]{display:none}
+
+    .toast{display:none}
+  }
 </style>
 </head>
 <body id="top">
@@ -336,6 +384,8 @@
     <button class="link-quiet" id="copyLink" type="button">Copiar enlace</button>
     <span class="link-quiet" id="footLink" hidden>wa.me/5493534128663</span>
   </div>
+
+  <p class="print-only">mativ93.github.io/tarjeta · wa.me/5493534128663</p>
 
 </main>
 

@@ -5,6 +5,7 @@
 | Archivo | Qué es |
 |---|---|
 | `index.html` | La tarjeta como página web (botones que funcionan) |
+| `tarjeta.pdf` | **La tarjeta como PDF: se manda como documento y los botones se tocan** |
 | `tarjeta.png` | La tarjeta como imagen vertical (1040 × 1720), para mandar como foto |
 | `preview.jpg` | Imagen horizontal (1200 × 630) que usa WhatsApp en la vista previa del link |
 | `preview.html` | Fuente de `preview.jpg`. No se comparte |
@@ -17,11 +18,13 @@ Publicada en: `https://mativ93.github.io/tarjeta/`
 
 ## La diferencia importante
 
+- **PDF** → se manda como documento, no es un link, y los botones de WhatsApp, email y
+  teléfono funcionan al tocarlos dentro del visor.
 - **Link** → WhatsApp lo muestra como una tarjeta con imagen, título y descripción.
-  **Toda la tarjeta es tocable**: al tocarla se abre la página con los botones activos.
+  Toda la tarjeta es tocable, pero muestra la URL.
 - **Imagen (`tarjeta.png`)** → se ve como foto. No se puede tocar.
 
-Para que aparezca la tarjeta tocable: pegar el link, no la foto.
+Para mandar la tarjeta sin link y con botones que funcionen: el PDF.
 
 ---
 
