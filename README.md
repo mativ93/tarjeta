@@ -20,7 +20,7 @@ La tarjeta es una página, no una foto: para compartirla hay que publicarla y ma
 1. Crear un repo público en GitHub, por ejemplo `tarjeta`.
 2. Subir el contenido de esta carpeta a la raíz.
 3. Settings → Pages → Source: *Deploy from a branch* → Branch `main`, carpeta `/ (root)`.
-4. Queda en `https://TU-USUARIO.github.io/tarjeta/`.
+4. Queda en `https://mativ93.github.io/tarjeta/`.
 
 Ese link se pega en WhatsApp y la otra persona abre la tarjeta con los botones activos
 (WhatsApp, email, guardar contacto).
