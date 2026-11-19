@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Verde;Matias;;;
+FN:Matias Verde
+ORG:GEN 3
+TITLE:Desarrollo web, sistemas a medida y automatizaciones
+TEL;TYPE=CELL,VOICE:+5493534128663
+EMAIL;TYPE=INTERNET,WORK:gen3vm@gmail.com
+ADR;TYPE=WORK:;;;Villa Maria;Cordoba;;Argentina
+NOTE:Sitios web, integraciones entre sistemas y automatizacion de tareas.
+END:VCARD
